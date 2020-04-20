@@ -22,8 +22,7 @@ export class PelisLit extends LitElement {
   static get properties() {
     return {
 			movies:{
-        type: Array,
-        observer: '_temp2Changed'
+        type: Array
       }
 		}
   }
@@ -33,9 +32,6 @@ export class PelisLit extends LitElement {
     this.movies = [{Title:'EXAMPLE'}];
   }
 
-  _temp2Changed(a){
-    console.log('CAMBIADO');
-  }
 
   getMovies({target}){
     this.movies = [{Title:'1'},{Title:'2'}];

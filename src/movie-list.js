@@ -24,8 +24,6 @@ export class MovieList extends LitElement {
 
   render() {
     return html`
-    ${console.log('-------------------')
-    }
     <h1>List of movies</h1>
     ${this.list.map(elem=> html`<h2>${elem.Title}</h2>`)}
     `;
