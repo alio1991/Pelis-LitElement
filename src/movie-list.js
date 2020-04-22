@@ -1,12 +1,17 @@
 import { html, css, LitElement } from 'lit-element';
+import './movie-card.js';
+
 
 export class MovieList extends LitElement {
   
   static get styles() {
     return css`
     :host {
-
+      display: flex;
+      flex-wrap: wrap;
+      height: fit-content;
     }
+    
     `;
   }
   
@@ -14,6 +19,9 @@ export class MovieList extends LitElement {
     return {
       list: { 
         type: Array
+      },
+      class: {
+        type: String
       }
     };
   }
@@ -24,8 +32,9 @@ export class MovieList extends LitElement {
 
   render() {
     return html`
-    <h1>List of movies</h1>
-    ${this.list.map(elem=> html`<h2>${elem.Title}</h2>`)}
+    ${this.list.length ? this.list.map(movie=> 
+      html`<movie-card .class=${this.class} .movie=${movie}></movie-card>`) : 
+      this.class==='favorite' ? 'No hay favoritos' : 'No se encontraron resultados.'}
     `;
   }
 }
