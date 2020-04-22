@@ -2,9 +2,11 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
+  <title>Pelis Lit</title>
   <style>
     body {
       background: #fafafa;
+      margin: 0
     }
   </style>
 </head>
@@ -15,11 +17,9 @@
     import { html, render } from 'lit-html';
     import '../pelis-lit.js';
 
-    const title = 'Hello owc World!';
     render(
       html`
-        <pelis-lit .title=${title}>
-          some more light-dom
+        <pelis-lit>
         </pelis-lit>
       `,
       document.querySelector('#demo')
