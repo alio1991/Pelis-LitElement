@@ -5,15 +5,25 @@ export class InputSearcch extends LitElement {
   static get styles() {
     return css`
     :host {
+      padding: 10px;
       width: 100%;
       height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    input{
+      border-radius: 15px;
     }
     `;
   }
   
   static get properties() {
     return {
-			inputChanges:{
+			eventName:{
 				type: String
 			},
 			title:{
@@ -26,7 +36,13 @@ export class InputSearcch extends LitElement {
     super();
   }
 
-
+  inputChanges(ev){
+    document.dispatchEvent( new CustomEvent(this.eventName, {
+      detail: {
+        value: ev.target.value
+      }
+    }));
+  }
 
   render() {
     return html`
