@@ -67,14 +67,14 @@ export class MovieCard extends LitElement {
   }
 
   getSrc() {
-    return this.movie.Poster === 'N/A' ? '' : this.movie.Poster;
+    return this.movie.Poster === 'N/A' ? '../src/no-image.png' : this.movie.Poster;
   }
 
   render() {
     return html`
         <div class=${'card '+this.class} @click=${this.cardSelected}
             <p>${this.movie.Title}</p>
-            <img src=${this.getSrc()}/>
+            <img src=${this.getSrc()} @error=${this.src='../src/no-image.png'}/>
         </div>
     `;
   }
